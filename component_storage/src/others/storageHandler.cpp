@@ -12,13 +12,13 @@
 
 const std::string StorageHandler::storagefile = "storage.txt";
 
-//!  _______ ______ _____  __  __ _____ _   _          _      
-//! |__   __|  ____|  __ \|  \/  |_   _| \ | |   /\   | |     
-//!    | |  | |__  | |__) | \  / | | | |  \| |  /  \  | |     
-//!    | |  |  __| |  _  /| |\/| | | | | . ` | / /\ \ | |     
-//!    | |  | |____| | \ \| |  | |_| |_| |\  |/ ____ \| |____ 
-//!    |_|  |______|_|  \_\_|  |_|_____|_| \_/_/    \_\______|
-//!
+//  _______ ______ _____  __  __ _____ _   _          _      
+// |__   __|  ____|  __ \|  \/  |_   _| \ | |   /\   | |     
+//    | |  | |__  | |__) | \  / | | | |  \| |  /  \  | |     
+//    | |  |  __| |  _  /| |\/| | | | | . ` | / /\ \ | |     
+//    | |  | |____| | \ \| |  | |_| |_| |\  |/ ____ \| |____ 
+//    |_|  |______|_|  \_\_|  |_|_____|_| \_/_/    \_\______|
+//
 
 compPtr StorageHandler::createComponent(ComponentType type){
     switch(type){
@@ -57,13 +57,13 @@ void StorageHandler::takeComponent(ComponentType type) {
     std::cout << "Pomyslnie pobrano komponent z magazynu!" << std::endl;
 }
 
-//!  _____  _      _____ _  __
-//! |  __ \| |    |_   _| |/ /
-//! | |__) | |      | | | ' / 
-//! |  ___/| |      | | |  <  
-//! | |    | |____ _| |_| . \ 
-//! |_|    |______|_____|_|\_\
-//!
+//  _____  _      _____ _  __
+// |  __ \| |    |_   _| |/ /
+// | |__) | |      | | | ' / 
+// |  ___/| |      | | |  <  
+// | |    | |____ _| |_| . \ 
+// |_|    |______|_____|_|\_\
+//
 
 compPtr StorageHandler::createComponent(ComponentType type, std::istream& istr){
     switch(type){
@@ -107,6 +107,10 @@ void StorageHandler::loadFromFile(){
 }
 void StorageHandler::exportToFile(){
     std::string filename = getString("Podaj nazwe pliku do eksportu");
+    if(filename == "storage.txt" || filename == "manufacturer.txt") {
+        std::cout << "Ta nazwa pliku jest niedozwolona!" << std::endl;
+        return;
+    }
     FileHandler fh(filename);
     std::cout << filename << std::endl;
     fh.startOutput();

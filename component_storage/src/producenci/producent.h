@@ -5,8 +5,8 @@
 
 class Producent {
 public:
-    Producent(std::string, std::string);
-    void setAdress(std::string);
+    Producent(const std::string&, const std::string&);
+    void setAdress(const std::string&);
     void display();
     void exportData(std::ostream&);
     std::string getName() {return nazwa;}

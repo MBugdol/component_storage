@@ -1,13 +1,15 @@
 #include "fileHandler.h"
 #include "funkcje.h"
 
-const std::string FileHandler::filepath = "./io/";
+std::string FileHandler::filepath = "../../component_storage/io/";
 
-FileHandler::FileHandler(const std::string& fname) : filename{ fname } {}
+FileHandler::FileHandler(const std::string& fname) : filename{ fname } {
+}
     
-//!input
+//input
 void FileHandler::startInput(){
     in_file.open(filepath+filename);
+
     if(!in_file) {
         std::string errormsg = "Plik " + filename + " nie istnieje lub jest zajety!";
         throw errormsg;
@@ -17,7 +19,7 @@ void FileHandler::stopInput(){
     in_file.close();
 }
 
-//!output
+//output
 void FileHandler::startOutput() {
     out_file.open(filepath+filename);
     if(!out_file) {

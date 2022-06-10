@@ -2,13 +2,13 @@
 #include "others/funkcje.h"
 #include "others/manager.h"
 
-//!  _  ______  _   _  _____ _______ _____  _    _ _  _______     _
-//! | |/ / __ \| \ | |/ ____|__   __|  __ \| |  | | |/ / ____|   | |  /\
-//! | ' / |  | |  \| | (___    | |  | |__) | |  | | ' / |        | | /  \
-//! |  <| |  | | . ` |\___ \   | |  |  _  /| |  | |  <| |    _   | |/ /\ \
-//! | . \ |__| | |\  |____) |  | |  | | \ \| |__| | . \ |___| |__| / ____ \
-//! |_|\_\____/|_| \_|_____/   |_|  |_|  \_\\____/|_|\_\_____\____/_/    \_\
-//!
+//  _  ______  _   _  _____ _______ _____  _    _ _  _______     _
+// | |/ / __ \| \ | |/ ____|__   __|  __ \| |  | | |/ / ____|   | |  /\
+// | ' / |  | |  \| | (___    | |  | |__) | |  | | ' / |        | | /  \
+// |  <| |  | | . ` |\___ \   | |  |  _  /| |  | |  <| |    _   | |/ /\ \
+// | . \ |__| | |\  |____) |  | |  | | \ \| |__| | . \ |___| |__| / ____ \
+// |_|\_\____/|_| \_|_____/   |_|  |_|  \_\\____/|_|\_\_____\____/_/    \_\
+//
 
 Kondensator::Kondensator(const CapacitorParams& data)
     : Komponent(data),
@@ -25,24 +25,24 @@ compPtr Kondensator::create(std::istream& istr){
 	return std::make_shared<Kondensator>(data);
 }
 
-//!  _____   ____  ____ _____ ______ _____            _   _ _____ ______ 
-//! |  __ \ / __ \|  _ \_   _|  ____|  __ \     /\   | \ | |_   _|  ____|
-//! | |__) | |  | | |_) || | | |__  | |__) |   /  \  |  \| | | | | |__   
-//! |  ___/| |  | |  _ < | | |  __| |  _  /   / /\ \ | . ` | | | |  __|  
-//! | |    | |__| | |_) || |_| |____| | \ \  / ____ \| |\  |_| |_| |____ 
-//! |_|     \____/|____/_____|______|_|  \_\/_/    \_\_| \_|_____|______|
-//!                                                                      
+//  _____   ____  ____ _____ ______ _____            _   _ _____ ______ 
+// |  __ \ / __ \|  _ \_   _|  ____|  __ \     /\   | \ | |_   _|  ____|
+// | |__) | |  | | |_) || | | |__  | |__) |   /  \  |  \| | | | | |__   
+// |  ___/| |  | |  _ < | | |  __| |  _  /   / /\ \ | . ` | | | |  __|  
+// | |    | |__| | |_) || |_| |____| | \ \  / ____ \| |\  |_| |_| |____ 
+// |_|     \____/|____/_____|______|_|  \_\/_/    \_\_| \_|_____|______|
+//                                                                      
 
 CapacitorParams Kondensator::getValues() {
 	CapacitorParams data;
 	data.type = ComponentType::Kondensator;
 	data.solder = getSolderType("Podaj typ montazu (tht/smt)");
 	data.manufacturer = getString("Podaj nazwe producenta");
-	Manager mng;
-	mng.manufacturer().addProducent(Producent{data.manufacturer, "nieznany"});
 	data.capacitance = getSIUnit("Podaj pojemnosc");
 	data.tolerance = getDouble("Podaj tolerancje (w %)");
 	data.working_voltage = getSIUnit("Podaj napiecie pracy");
+	Manager mng;
+	mng.manufacturer().addProducent(Producent{data.manufacturer, "nieznany"});
 	return data;
 }
 CapacitorParams Kondensator::getValues(std::istream& istr){
@@ -56,13 +56,13 @@ CapacitorParams Kondensator::getValues(std::istream& istr){
 	return data;
 }
 
-//!   ____  _____  ______ _____         _______ ____  _______     __
-//!  / __ \|  __ \|  ____|  __ \     /\|__   __/ __ \|  __ \ \   / /
-//! | |  | | |__) | |__  | |__) |   /  \  | | | |  | | |__) \ \_/ /
-//! | |  | |  ___/|  __| |  _  /   / /\ \ | | | |  | |  _  / \   /
-//! | |__| | |    | |____| | \ \  / ____ \| | | |__| | | \ \  | |
-//!  \____/|_|    |______|_|  \_\/_/    \_\_|  \____/|_|  \_\ |_|
-//!
+//   ____  _____  ______ _____         _______ ____  _______     __
+//  / __ \|  __ \|  ____|  __ \     /\|__   __/ __ \|  __ \ \   / /
+// | |  | | |__) | |__  | |__) |   /  \  | | | |  | | |__) \ \_/ /
+// | |  | |  ___/|  __| |  _  /   / /\ \ | | | |  | |  _  / \   /
+// | |__| | |    | |____| | \ \  / ____ \| | | |__| | | \ \  | |
+//  \____/|_|    |______|_|  \_\/_/    \_\_|  \____/|_|  \_\ |_|
+//
 
 bool Kondensator::operator==(const Komponent& obj){
 	if(Komponent::operator!=(obj)) return false;

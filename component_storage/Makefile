@@ -36,18 +36,18 @@ define POSTBUILDCMDS
 endef
 
 ifeq ($(config),debug)
-TARGETDIR = ../bin/windows-Debug-x86_64
-TARGET = $(TARGETDIR)/component_storage.exe
-OBJDIR = ../bin-int/windows-Debug-x86_64
+TARGETDIR = ../bin/linux-Debug-x86_64
+TARGET = $(TARGETDIR)/component_storage
+OBJDIR = ../bin-int/linux-Debug-x86_64
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O0
-ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O0
+ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O0 -std=c++17
 
 else ifeq ($(config),release)
-TARGETDIR = ../bin/windows-Release-x86_64
-TARGET = $(TARGETDIR)/component_storage.exe
-OBJDIR = ../bin-int/windows-Release-x86_64
+TARGETDIR = ../bin/linux-Release-x86_64
+TARGET = $(TARGETDIR)/component_storage
+OBJDIR = ../bin-int/linux-Release-x86_64
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2
-ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2
+ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -std=c++17
 
 endif
 
@@ -66,7 +66,6 @@ GENERATED += $(OBJDIR)/fileHandler.o
 GENERATED += $(OBJDIR)/funkcje.o
 GENERATED += $(OBJDIR)/komponent.o
 GENERATED += $(OBJDIR)/kondensator.o
-GENERATED += $(OBJDIR)/log.o
 GENERATED += $(OBJDIR)/main.o
 GENERATED += $(OBJDIR)/mainMenu.o
 GENERATED += $(OBJDIR)/manager.o
@@ -87,7 +86,6 @@ OBJECTS += $(OBJDIR)/fileHandler.o
 OBJECTS += $(OBJDIR)/funkcje.o
 OBJECTS += $(OBJDIR)/komponent.o
 OBJECTS += $(OBJDIR)/kondensator.o
-OBJECTS += $(OBJDIR)/log.o
 OBJECTS += $(OBJDIR)/main.o
 OBJECTS += $(OBJDIR)/mainMenu.o
 OBJECTS += $(OBJDIR)/manager.o
@@ -212,9 +210,6 @@ $(OBJDIR)/fileHandler.o: src/others/fileHandler.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/funkcje.o: src/others/funkcje.cpp
-	@echo $(notdir $<)
-	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/log.o: src/others/log.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/manager.o: src/others/manager.cpp

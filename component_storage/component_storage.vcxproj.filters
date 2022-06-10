@@ -133,8 +133,4 @@
       <Filter>producenci</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="io\storage.txt" />
-    <Text Include="io\manufacturer.txt" />
-  </ItemGroup>
 </Project>

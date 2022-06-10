@@ -10,6 +10,7 @@ const std::string ProducentHandler::producentfile = "manufacturer.txt";
 void ProducentHandler::loadFromFile(){
     FileHandler fh(producentfile);
     fh.startInput();
+
     std::string line;
     while(std::getline(fh.getInput(), line)){
         std::istringstream iss(line);
@@ -18,7 +19,7 @@ void ProducentHandler::loadFromFile(){
             std::string address = getString(iss);
             producenci.push_back(Producent{name, address});
         }
-        catch(std::string errormsg){
+        catch(const std::string& errormsg){
             std::cout << errormsg << std::endl;
         }
     }
@@ -77,6 +78,10 @@ void ProducentHandler::listProducents(){
 }
 void ProducentHandler::exportToFile(){
     std::string filename = getString("Podaj nazwe pliku do eksportu");
+    if(filename == "storage.txt" || filename == "manufacturer.txt") {
+        std::cout << "Ta nazwa pliku jest niedozwolona!" << std::endl;
+        return;
+    }
     FileHandler fh(filename);
     fh.startOutput();
     for(Producent p : producenci){

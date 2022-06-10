@@ -2,13 +2,13 @@
 #include "others/funkcje.h"
 #include "others/manager.h"
 
-//!  _  ______  _   _  _____ _______ _____  _    _ _  _______     _
-//! | |/ / __ \| \ | |/ ____|__   __|  __ \| |  | | |/ / ____|   | |  /\
-//! | ' / |  | |  \| | (___    | |  | |__) | |  | | ' / |        | | /  \
-//! |  <| |  | | . ` |\___ \   | |  |  _  /| |  | |  <| |    _   | |/ /\ \
-//! | . \ |__| | |\  |____) |  | |  | | \ \| |__| | . \ |___| |__| / ____ \
-//! |_|\_\____/|_| \_|_____/   |_|  |_|  \_\\____/|_|\_\_____\____/_/    \_\
-//!
+//  _  ______  _   _  _____ _______ _____  _    _ _  _______     _
+// | |/ / __ \| \ | |/ ____|__   __|  __ \| |  | | |/ / ____|   | |  /\
+// | ' / |  | |  \| | (___    | |  | |__) | |  | | ' / |        | | /  \
+// |  <| |  | | . ` |\___ \   | |  |  _  /| |  | |  <| |    _   | |/ /\ \
+// | . \ |__| | |\  |____) |  | |  | | \ \| |__| | . \ |___| |__| / ____ \
+// |_|\_\____/|_| \_|_____/   |_|  |_|  \_\\____/|_|\_\_____\____/_/    \_\
+//
 
 Tranzystor::Tranzystor(const TransistorParams& data)
 	: Komponent(data),
@@ -25,24 +25,24 @@ compPtr Tranzystor::create(std::istream& istr){
 	return std::make_shared<Tranzystor>(data);
 }
 
-//!  _____   ____  ____ _____ ______ _____            _   _ _____ ______ 
-//! |  __ \ / __ \|  _ \_   _|  ____|  __ \     /\   | \ | |_   _|  ____|
-//! | |__) | |  | | |_) || | | |__  | |__) |   /  \  |  \| | | | | |__   
-//! |  ___/| |  | |  _ < | | |  __| |  _  /   / /\ \ | . ` | | | |  __|  
-//! | |    | |__| | |_) || |_| |____| | \ \  / ____ \| |\  |_| |_| |____ 
-//! |_|     \____/|____/_____|______|_|  \_\/_/    \_\_| \_|_____|______|
-//!                                                                      
+//  _____   ____  ____ _____ ______ _____            _   _ _____ ______ 
+// |  __ \ / __ \|  _ \_   _|  ____|  __ \     /\   | \ | |_   _|  ____|
+// | |__) | |  | | |_) || | | |__  | |__) |   /  \  |  \| | | | | |__   
+// |  ___/| |  | |  _ < | | |  __| |  _  /   / /\ \ | . ` | | | |  __|  
+// | |    | |__| | |_) || |_| |____| | \ \  / ____ \| |\  |_| |_| |____ 
+// |_|     \____/|____/_____|______|_|  \_\/_/    \_\_| \_|_____|______|
+//                                                                      
 
 TransistorParams Tranzystor::getValues() {
 	TransistorParams data;
 	data.type = ComponentType::Tranzystor;
 	data.solder = getSolderType("Podaj typ montazu (tht/smt)");
 	data.manufacturer = getString("Podaj nazwe producenta");
-	Manager mng;
-	mng.manufacturer().addProducent(Producent{data.manufacturer, "nieznany"});
 	data.model = getString("Podaj nazwe modelu");
 	data.beta = getDouble("Podaj bete/wzmocnienie");
 	data.collector_current = getSIUnit("Podaj prad kolektora");
+	Manager mng;
+	mng.manufacturer().addProducent(Producent{data.manufacturer, "nieznany"});
 	return data;
 }
 TransistorParams Tranzystor::getValues(std::istream& istr){
@@ -56,13 +56,13 @@ TransistorParams Tranzystor::getValues(std::istream& istr){
 	return data;
 }
 
-//!   ____  _____  ______ _____         _______ ____  _______     __
-//!  / __ \|  __ \|  ____|  __ \     /\|__   __/ __ \|  __ \ \   / /
-//! | |  | | |__) | |__  | |__) |   /  \  | | | |  | | |__) \ \_/ /
-//! | |  | |  ___/|  __| |  _  /   / /\ \ | | | |  | |  _  / \   /
-//! | |__| | |    | |____| | \ \  / ____ \| | | |__| | | \ \  | |
-//!  \____/|_|    |______|_|  \_\/_/    \_\_|  \____/|_|  \_\ |_|
-//!
+//   ____  _____  ______ _____         _______ ____  _______     __
+//  / __ \|  __ \|  ____|  __ \     /\|__   __/ __ \|  __ \ \   / /
+// | |  | | |__) | |__  | |__) |   /  \  | | | |  | | |__) \ \_/ /
+// | |  | |  ___/|  __| |  _  /   / /\ \ | | | |  | |  _  / \   /
+// | |__| | |    | |____| | \ \  / ____ \| | | |__| | | \ \  | |
+//  \____/|_|    |______|_|  \_\/_/    \_\_|  \____/|_|  \_\ |_|
+//
 
 bool Tranzystor::operator==(const Komponent& obj){
 	if(Komponent::operator!=(obj)) return false;

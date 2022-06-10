@@ -4,26 +4,29 @@
 #include <unordered_map>
 #include <algorithm>
 
-//!  ____           _____ _____ _____ 
-//! |  _ \   /\    / ____|_   _/ ____|
-//! | |_) | /  \  | (___   | || |     
-//! |  _ < / /\ \  \___ \  | || |     
-//! | |_) / ____ \ ____) |_| || |____ 
-//! |____/_/    \_\_____/|_____\_____|
-//!                                  
+//  ____           _____ _____ _____ 
+// |  _ \   /\    / ____|_   _/ ____|
+// | |_) | /  \  | (___   | || |     
+// |  _ < / /\ \  \___ \  | || |     
+// | |_) / ____ \ ____) |_| || |____ 
+// |____/_/    \_\_____/|_____\_____|
+//                                  
 
-int getInt(const char* msg, int default_val){
+int getInt(const std::string& msg, int default_val){
 	while(true){
 		try{
 			std::string input = getString(msg);
 			if(input.empty()) return default_val;
+
 			int val = std::stoi(input);
 			if(val < 0) {
 				std::cout << "Wejscie ujemne - przyjeto wartosc domyslna..." << std::endl;
 				return default_val;
 			}
+
 			return val;
 		}
+
 		catch(std::string msg){
 			std::cout << msg << std::endl;
 		}
@@ -49,16 +52,18 @@ int getInt(std::istream& istr){
 		throw std::string{"Liczba jest zbyt duza! Pomijanie komponentu..."};
 	}
 }
-double getDouble(const char* msg, double default_val) {
+double getDouble(const std::string& msg, double default_val) {
 	while(true){
 		try{
 			std::string input = getString(msg);
 			if(input.empty()) return default_val;
+
 			double val = std::stod(input);
 			if(val < 0) {
 				std::cout << "Wejscie ujemne - przyjeto wartosc domyslna..." << std::endl;
 				return default_val;
 			}
+			
 			return val;
 		}
 		catch(std::invalid_argument){
@@ -84,15 +89,15 @@ double getDouble(std::istream& istr){
 	}
 }
 
-//!   _____ _______ _____  _____ _   _  _____ 
-//!  / ____|__   __|  __ \|_   _| \ | |/ ____|
-//! | (___    | |  | |__) | | | |  \| | |  __ 
-//!  \___ \   | |  |  _  /  | | | . ` | | |_ |
-//!  ____) |  | |  | | \ \ _| |_| |\  | |__| |
-//! |_____/   |_|  |_|  \_\_____|_| \_|\_____|
-//!
+//   _____ _______ _____  _____ _   _  _____ 
+//  / ____|__   __|  __ \|_   _| \ | |/ ____|
+// | (___    | |  | |__) | | | |  \| | |  __ 
+//  \___ \   | |  |  _  /  | | | . ` | | |_ |
+//  ____) |  | |  | | \ \ _| |_| |\  | |__| |
+// |_____/   |_|  |_|  \_\_____|_| \_|\_____|
+//
 
-std::string getString(const char* msg, std::string default_val){
+std::string getString(const std::string& msg, std::string default_val){
 	std::cout << msg << ": " ;
 	std::string input;
 	std::getline(std::cin, input);
@@ -133,15 +138,15 @@ inline void convertToLower(std::string& str){
 	std::transform(str.begin(), str.end(), str.begin(), [](char ch){return std::tolower(ch);});
 }
 
-//!   _____ _____ _    _ _   _ _____ _______ 
-//!  / ____|_   _| |  | | \ | |_   _|__   __|
-//! | (___   | | | |  | |  \| | | |    | |   
-//!  \___ \  | | | |  | | . ` | | |    | |   
-//!  ____) |_| |_| |__| | |\  |_| |_   | |   
-//! |_____/|_____|\____/|_| \_|_____|  |_|   
-//!                                          
+//   _____ _____ _    _ _   _ _____ _______ 
+//  / ____|_   _| |  | | \ | |_   _|__   __|
+// | (___   | | | |  | |  \| | | |    | |   
+//  \___ \  | | | |  | | . ` | | |    | |   
+//  ____) |_| |_| |__| | |\  |_| |_   | |   
+// |_____/|_____|\____/|_| \_|_____|  |_|   
+//                                          
 
-SIUnit getSIUnit(const char* msg, SIUnit default_value){
+SIUnit getSIUnit(const std::string& msg, SIUnit default_value){
 	while(true){
 		try {
 			std::string input = getString(msg);
@@ -208,15 +213,15 @@ SIUnit standardiseSI(SIUnit& SI) {
 	return std::make_pair(value, *prefix_pos);
 }
 
-//!   _____ ____  __  __ _____   ____  _   _ ______ _   _ _______ _________     _______  ______ 
-//!  / ____/ __ \|  \/  |  __ \ / __ \| \ | |  ____| \ | |__   __|__   __\ \   / /  __ \|  ____|
-//! | |   | |  | | \  / | |__) | |  | |  \| | |__  |  \| |  | |     | |   \ \_/ /| |__) | |__   
-//! | |   | |  | | |\/| |  ___/| |  | | . ` |  __| | . ` |  | |     | |    \   / |  ___/|  __|  
-//! | |___| |__| | |  | | |    | |__| | |\  | |____| |\  |  | |     | |     | |  | |    | |____ 
-//!  \_____\____/|_|  |_|_|     \____/|_| \_|______|_| \_|  |_|     |_|     |_|  |_|    |______|
-//!
+//   _____ ____  __  __ _____   ____  _   _ ______ _   _ _______ _________     _______  ______ 
+//  / ____/ __ \|  \/  |  __ \ / __ \| \ | |  ____| \ | |__   __|__   __\ \   / /  __ \|  ____|
+// | |   | |  | | \  / | |__) | |  | |  \| | |__  |  \| |  | |     | |   \ \_/ /| |__) | |__   
+// | |   | |  | | |\/| |  ___/| |  | | . ` |  __| | . ` |  | |     | |    \   / |  ___/|  __|  
+// | |___| |__| | |  | | |    | |__| | |\  | |____| |\  |  | |     | |     | |  | |    | |____ 
+//  \_____\____/|_|  |_|_|     \____/|_| \_|______|_| \_|  |_|     |_|     |_|  |_|    |______|
+//
 
-ComponentType getComponentType(const char* msg, ComponentType default_value){
+ComponentType getComponentType(const std::string& msg, ComponentType default_value){
 	while(true){
 		try {
 			std::string input = getString(msg);
@@ -258,15 +263,15 @@ ComponentType convertToComponentType(int n){
 	return ComponentType(n);
 }
 
-//!   _____  ____  _      _____  ______ _____ _________     _______  ______ 
-//!  / ____|/ __ \| |    |  __ \|  ____|  __ \__   __\ \   / /  __ \|  ____|
-//! | (___ | |  | | |    | |  | | |__  | |__) | | |   \ \_/ /| |__) | |__   
-//!  \___ \| |  | | |    | |  | |  __| |  _  /  | |    \   / |  ___/|  __|  
-//!  ____) | |__| | |____| |__| | |____| | \ \  | |     | |  | |    | |____ 
-//! |_____/ \____/|______|_____/|______|_|  \_\ |_|     |_|  |_|    |______|
-//!                                                                         
+//   _____  ____  _      _____  ______ _____ _________     _______  ______ 
+//  / ____|/ __ \| |    |  __ \|  ____|  __ \__   __\ \   / /  __ \|  ____|
+// | (___ | |  | | |    | |  | | |__  | |__) | | |   \ \_/ /| |__) | |__   
+//  \___ \| |  | | |    | |  | |  __| |  _  /  | |    \   / |  ___/|  __|  
+//  ____) | |__| | |____| |__| | |____| | \ \  | |     | |  | |    | |____ 
+// |_____/ \____/|______|_____/|______|_|  \_\ |_|     |_|  |_|    |______|
+//                                                                         
                                                                          
-SolderType getSolderType(const char* msg, SolderType default_value) {
+SolderType getSolderType(const std::string& msg, SolderType default_value) {
 	while(true) {
 		try {
 			std::string input = getString(msg);
@@ -300,13 +305,13 @@ SolderType convertToSolderType(std::string& str) {
 	return convert[str];
 }
 
-//!  _____  _____   ____  _____  _    _  _____ ______ _   _ _______ 
-//! |  __ \|  __ \ / __ \|  __ \| |  | |/ ____|  ____| \ | |__   __|
-//! | |__) | |__) | |  | | |  | | |  | | |    | |__  |  \| |  | |   
-//! |  ___/|  _  /| |  | | |  | | |  | | |    |  __| | . ` |  | |   
-//! | |    | | \ \| |__| | |__| | |__| | |____| |____| |\  |  | |   
-//! |_|    |_|  \_\\____/|_____/ \____/ \_____|______|_| \_|  |_|   
-//!                                                                 
+//  _____  _____   ____  _____  _    _  _____ ______ _   _ _______ 
+// |  __ \|  __ \ / __ \|  __ \| |  | |/ ____|  ____| \ | |__   __|
+// | |__) | |__) | |  | | |  | | |  | | |    | |__  |  \| |  | |   
+// |  ___/|  _  /| |  | | |  | | |  | | |    |  __| | . ` |  | |   
+// | |    | | \ \| |__| | |__| | |__| | |____| |____| |\  |  | |   
+// |_|    |_|  \_\\____/|_____/ \____/ \_____|______|_| \_|  |_|   
+//                                                                 
                                                                  
 Producent getProducent(){
 	std::string nazwa = getString("Podaj nazwe producenta");

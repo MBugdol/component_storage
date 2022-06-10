@@ -1,14 +1,14 @@
 #include "producent.h"
 #include <iostream>
 
-Producent::Producent(std::string _nazwa, std::string _adres)
-    : nazwa(_nazwa), adres(_adres) {}
+Producent::Producent(const std::string& n_nazwa, const std::string& n_adres)
+    : nazwa(n_nazwa), adres(n_adres) {}
 
 void Producent::exportData(std::ostream& istr) {
     istr << nazwa << ":\n\t" << "Adres : " << adres;
 }
 
-void Producent::setAdress(std::string n_adress){
+void Producent::setAdress(const std::string& n_adress){
     adres = n_adress;
 }
 

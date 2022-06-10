@@ -59,6 +59,7 @@
       <WarningLevel>Level3</WarningLevel>
       <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -74,6 +75,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,10 +125,6 @@
     <ClCompile Include="src\others\storageHandler.cpp" />
     <ClCompile Include="src\producenci\producent.cpp" />
     <ClCompile Include="src\producenci\producentHandler.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="io\manufacturer.txt" />
-    <Text Include="io\storage.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -11,6 +11,7 @@ int main() {
 	try 
 	{
 		Manager manager;
+		FileHandler fh("Help");
 
 		manager.manufacturer().loadFromFile();	
 		manager.storage().loadFromFile();
