@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="komponenty">
+      <UniqueIdentifier>{992A7CB8-85E2-BD05-EEE9-9661DAC058F6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="menu">
+      <UniqueIdentifier>{1A919A7C-06C8-9B0D-AFB4-81109BCA170F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="others">
+      <UniqueIdentifier>{3A813913-2623-64E9-0FDE-773DFB1EEB39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="producenci">
+      <UniqueIdentifier>{F1072774-DDBF-68C1-46C7-411D329E03B2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\komponenty\cewka.h">
+      <Filter>komponenty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\komponenty\komponent.h">
+      <Filter>komponenty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\komponenty\kondensator.h">
+      <Filter>komponenty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\komponenty\rezystor.h">
+      <Filter>komponenty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\komponenty\tranzystor.h">
+      <Filter>komponenty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\komponenty\ukladScalony.h">
+      <Filter>komponenty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\menu\mainMenu.h">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\menu\manufacturerMenu.h">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\menu\menu.h">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\menu\menuDodawanie.h">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\menu\menuHandler.h">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\menu\menuPobieranie.h">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\menu\menuPrint.h">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\others\fileHandler.h">
+      <Filter>others</Filter>
+    </ClInclude>
+    <ClInclude Include="src\others\funkcje.h">
+      <Filter>others</Filter>
+    </ClInclude>
+    <ClInclude Include="src\others\log.h">
+      <Filter>others</Filter>
+    </ClInclude>
+    <ClInclude Include="src\others\manager.h">
+      <Filter>others</Filter>
+    </ClInclude>
+    <ClInclude Include="src\others\storageHandler.h">
+      <Filter>others</Filter>
+    </ClInclude>
+    <ClInclude Include="src\producenci\producent.h">
+      <Filter>producenci</Filter>
+    </ClInclude>
+    <ClInclude Include="src\producenci\producentHandler.h">
+      <Filter>producenci</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\komponenty\cewka.cpp">
+      <Filter>komponenty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\komponenty\komponent.cpp">
+      <Filter>komponenty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\komponenty\kondensator.cpp">
+      <Filter>komponenty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\komponenty\rezystor.cpp">
+      <Filter>komponenty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\komponenty\tranzystor.cpp">
+      <Filter>komponenty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\komponenty\ukladScalony.cpp">
+      <Filter>komponenty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\menu\mainMenu.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\menu\manufacturerMenu.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\menu\menu.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\menu\menuDodawanie.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\menu\menuHandler.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\menu\menuPobieranie.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\menu\menuPrint.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\others\fileHandler.cpp">
+      <Filter>others</Filter>
+    </ClCompile>
+    <ClCompile Include="src\others\funkcje.cpp">
+      <Filter>others</Filter>
+    </ClCompile>
+    <ClCompile Include="src\others\log.cpp">
+      <Filter>others</Filter>
+    </ClCompile>
+    <ClCompile Include="src\others\manager.cpp">
+      <Filter>others</Filter>
+    </ClCompile>
+    <ClCompile Include="src\others\storageHandler.cpp">
+      <Filter>others</Filter>
+    </ClCompile>
+    <ClCompile Include="src\producenci\producent.cpp">
+      <Filter>producenci</Filter>
+    </ClCompile>
+    <ClCompile Include="src\producenci\producentHandler.cpp">
+      <Filter>producenci</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

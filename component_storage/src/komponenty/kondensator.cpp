@@ -1,6 +1,6 @@
 #include "kondensator.h"
-#include "../others/funkcje.h"
-#include "../others/manager.h"
+#include "others/funkcje.h"
+#include "others/manager.h"
 
 //!  _  ______  _   _  _____ _______ _____  _    _ _  _______     _
 //! | |/ / __ \| \ | |/ ____|__   __|  __ \| |  | | |/ / ____|   | |  /\

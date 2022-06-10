@@ -1,5 +1,5 @@
 #include "manufacturerMenu.h"
-#include "../others/manager.h"
+#include "others/manager.h"
 void ManufacturerMenu::run(){
     Manager mng;
     ManufacturerMenu::initialize();

@@ -1,5 +1,5 @@
 #include "menuPrint.h"
-#include "../others/manager.h"
+#include "others/manager.h"
 
 void MenuPrint::run(){
     Manager mng;

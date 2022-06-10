@@ -2,8 +2,8 @@
 #include <vector>
 #include <memory>
 #include <fstream>
-#include "../komponenty/rezystor.h"
-#include "../komponenty/komponent.h"
+#include "komponenty/rezystor.h"
+#include "komponenty/komponent.h"
 
 
 class StorageHandler

@@ -1,10 +1,10 @@
 #ifndef MANAGER
 #define MANAGER
 
-#include "../menu/menuHandler.h"
+#include "menu/menuHandler.h"
 #include "storageHandler.h"
 #include "fileHandler.h"
-#include "../producenci/producentHandler.h"
+#include "producenci/producentHandler.h"
 
 class Manager{
 public:

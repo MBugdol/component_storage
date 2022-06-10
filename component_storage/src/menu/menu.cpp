@@ -1,6 +1,6 @@
 #include "menu.h"
 #include <iostream>
-#include "../others/funkcje.h"
+#include "others/funkcje.h"
 
 void Menu::display() {
 	std::cout << Menu::title << std::endl;

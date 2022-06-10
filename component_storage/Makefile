@@ -20,7 +20,7 @@ endif
 
 RESCOMP = windres
 DEFINES +=
-INCLUDES += -I.
+INCLUDES += -Isrc
 FORCE_INCLUDE +=
 ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
 ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
@@ -36,16 +36,16 @@ define POSTBUILDCMDS
 endef
 
 ifeq ($(config),debug)
-TARGETDIR = ../bin/windows-Debug-x86_64
-TARGET = $(TARGETDIR)/component_storage.exe
-OBJDIR = ../bin-int/windows-Debug-x86_64
+TARGETDIR = ../bin/linux-Debug-x86_64
+TARGET = $(TARGETDIR)/component_storage
+OBJDIR = ../bin-int/linux-Debug-x86_64
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O0
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O0
 
 else ifeq ($(config),release)
-TARGETDIR = ../bin/windows-Release-x86_64
-TARGET = $(TARGETDIR)/component_storage.exe
-OBJDIR = ../bin-int/windows-Release-x86_64
+TARGETDIR = ../bin/linux-Release-x86_64
+TARGET = $(TARGETDIR)/component_storage
+OBJDIR = ../bin-int/linux-Release-x86_64
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2
 
@@ -61,8 +61,48 @@ endif
 GENERATED :=
 OBJECTS :=
 
+GENERATED += $(OBJDIR)/cewka.o
+GENERATED += $(OBJDIR)/fileHandler.o
+GENERATED += $(OBJDIR)/funkcje.o
+GENERATED += $(OBJDIR)/komponent.o
+GENERATED += $(OBJDIR)/kondensator.o
+GENERATED += $(OBJDIR)/log.o
 GENERATED += $(OBJDIR)/main.o
+GENERATED += $(OBJDIR)/mainMenu.o
+GENERATED += $(OBJDIR)/manager.o
+GENERATED += $(OBJDIR)/manufacturerMenu.o
+GENERATED += $(OBJDIR)/menu.o
+GENERATED += $(OBJDIR)/menuDodawanie.o
+GENERATED += $(OBJDIR)/menuHandler.o
+GENERATED += $(OBJDIR)/menuPobieranie.o
+GENERATED += $(OBJDIR)/menuPrint.o
+GENERATED += $(OBJDIR)/producent.o
+GENERATED += $(OBJDIR)/producentHandler.o
+GENERATED += $(OBJDIR)/rezystor.o
+GENERATED += $(OBJDIR)/storageHandler.o
+GENERATED += $(OBJDIR)/tranzystor.o
+GENERATED += $(OBJDIR)/ukladScalony.o
+OBJECTS += $(OBJDIR)/cewka.o
+OBJECTS += $(OBJDIR)/fileHandler.o
+OBJECTS += $(OBJDIR)/funkcje.o
+OBJECTS += $(OBJDIR)/komponent.o
+OBJECTS += $(OBJDIR)/kondensator.o
+OBJECTS += $(OBJDIR)/log.o
 OBJECTS += $(OBJDIR)/main.o
+OBJECTS += $(OBJDIR)/mainMenu.o
+OBJECTS += $(OBJDIR)/manager.o
+OBJECTS += $(OBJDIR)/manufacturerMenu.o
+OBJECTS += $(OBJDIR)/menu.o
+OBJECTS += $(OBJDIR)/menuDodawanie.o
+OBJECTS += $(OBJDIR)/menuHandler.o
+OBJECTS += $(OBJDIR)/menuPobieranie.o
+OBJECTS += $(OBJDIR)/menuPrint.o
+OBJECTS += $(OBJDIR)/producent.o
+OBJECTS += $(OBJDIR)/producentHandler.o
+OBJECTS += $(OBJDIR)/rezystor.o
+OBJECTS += $(OBJDIR)/storageHandler.o
+OBJECTS += $(OBJDIR)/tranzystor.o
+OBJECTS += $(OBJDIR)/ukladScalony.o
 
 # Rules
 # #############################################
@@ -126,7 +166,67 @@ endif
 # File Rules
 # #############################################
 
-$(OBJDIR)/main.o: ../main.cpp
+$(OBJDIR)/cewka.o: src/komponenty/cewka.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/komponent.o: src/komponenty/komponent.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/kondensator.o: src/komponenty/kondensator.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/rezystor.o: src/komponenty/rezystor.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/tranzystor.o: src/komponenty/tranzystor.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/ukladScalony.o: src/komponenty/ukladScalony.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/main.o: src/main.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/mainMenu.o: src/menu/mainMenu.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/manufacturerMenu.o: src/menu/manufacturerMenu.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/menu.o: src/menu/menu.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/menuDodawanie.o: src/menu/menuDodawanie.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/menuHandler.o: src/menu/menuHandler.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/menuPobieranie.o: src/menu/menuPobieranie.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/menuPrint.o: src/menu/menuPrint.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/fileHandler.o: src/others/fileHandler.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/funkcje.o: src/others/funkcje.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/log.o: src/others/log.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/manager.o: src/others/manager.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/storageHandler.o: src/others/storageHandler.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/producent.o: src/producenci/producent.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/producentHandler.o: src/producenci/producentHandler.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 

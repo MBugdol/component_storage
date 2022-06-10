@@ -1,7 +1,7 @@
 #include "mainMenu.h"
 #include <iostream>
-#include "../others/funkcje.h"
-#include "../others/manager.h"
+#include "others/funkcje.h"
+#include "others/manager.h"
 
 void MainMenu::run() {
 	Manager mng;

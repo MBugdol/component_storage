@@ -2,9 +2,9 @@
 #define FUNKCJE
 #include <string>
 #include <vector>
-#include "../komponenty/komponent.h"
-#include "../producenci/producent.h"
-#include "../others/storageHandler.h"
+#include "komponenty/komponent.h"
+#include "producenci/producent.h"
+#include "others/storageHandler.h"
 
 //!
 //!SIUnit

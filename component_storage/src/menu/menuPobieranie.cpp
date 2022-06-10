@@ -1,6 +1,6 @@
 #include "menuPobieranie.h"
-#include "../others/funkcje.h"
-#include "../others/manager.h"
+#include "others/funkcje.h"
+#include "others/manager.h"
 
 void MenuPobieranie::run() {
     Manager mng;

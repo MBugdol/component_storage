@@ -17,20 +17,20 @@ project "component_storage"
     targetdir ("bin/" ..outputdir)
     objdir ("bin-int/" ..outputdir)
     includedirs {
-        "%{prj.name}"
+        "%{prj.name}/src"
     }
 
     files
     {
-        "main.cpp",
-        "%{prj.name}/komponenty/**.h",
-        "%{prj.name}/komponenty/**.cpp",
-        "%{prj.name}/menu/**.h",
-        "%{prj.name}/menu/**.cpp",
-        "%{prj.name}/producenci/**.h",
-        "%{prj.name}/producenci/**.cpp",
-        "%{prj.name}/others/**.h",
-        "%{prj.name}/others/**.cpp"
+        "%{prj.name}/src/main.cpp",
+        "%{prj.name}/src/komponenty/**.h",
+        "%{prj.name}/src/komponenty/**.cpp",
+        "%{prj.name}/src/menu/**.h",
+        "%{prj.name}/src/menu/**.cpp",
+        "%{prj.name}/src/producenci/**.h",
+        "%{prj.name}/src/producenci/**.cpp",
+        "%{prj.name}/src/others/**.h",
+        "%{prj.name}/src/others/**.cpp"
     }
     
     filter "configurations:Debug"

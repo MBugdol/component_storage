@@ -2,11 +2,11 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm>
-#include "../komponenty/rezystor.h"
-#include "../komponenty/kondensator.h"
-#include "../komponenty/cewka.h"
-#include "../komponenty/tranzystor.h"
-#include "../komponenty/ukladScalony.h"
+#include "komponenty/rezystor.h"
+#include "komponenty/kondensator.h"
+#include "komponenty/cewka.h"
+#include "komponenty/tranzystor.h"
+#include "komponenty/ukladScalony.h"
 #include "manager.h"
 #include "funkcje.h"
 

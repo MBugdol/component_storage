@@ -57,7 +57,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
@@ -68,7 +68,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -82,7 +82,49 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\main.cpp" />
+    <ClInclude Include="src\komponenty\cewka.h" />
+    <ClInclude Include="src\komponenty\komponent.h" />
+    <ClInclude Include="src\komponenty\kondensator.h" />
+    <ClInclude Include="src\komponenty\rezystor.h" />
+    <ClInclude Include="src\komponenty\tranzystor.h" />
+    <ClInclude Include="src\komponenty\ukladScalony.h" />
+    <ClInclude Include="src\menu\mainMenu.h" />
+    <ClInclude Include="src\menu\manufacturerMenu.h" />
+    <ClInclude Include="src\menu\menu.h" />
+    <ClInclude Include="src\menu\menuDodawanie.h" />
+    <ClInclude Include="src\menu\menuHandler.h" />
+    <ClInclude Include="src\menu\menuPobieranie.h" />
+    <ClInclude Include="src\menu\menuPrint.h" />
+    <ClInclude Include="src\others\fileHandler.h" />
+    <ClInclude Include="src\others\funkcje.h" />
+    <ClInclude Include="src\others\log.h" />
+    <ClInclude Include="src\others\manager.h" />
+    <ClInclude Include="src\others\storageHandler.h" />
+    <ClInclude Include="src\producenci\producent.h" />
+    <ClInclude Include="src\producenci\producentHandler.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\komponenty\cewka.cpp" />
+    <ClCompile Include="src\komponenty\komponent.cpp" />
+    <ClCompile Include="src\komponenty\kondensator.cpp" />
+    <ClCompile Include="src\komponenty\rezystor.cpp" />
+    <ClCompile Include="src\komponenty\tranzystor.cpp" />
+    <ClCompile Include="src\komponenty\ukladScalony.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\menu\mainMenu.cpp" />
+    <ClCompile Include="src\menu\manufacturerMenu.cpp" />
+    <ClCompile Include="src\menu\menu.cpp" />
+    <ClCompile Include="src\menu\menuDodawanie.cpp" />
+    <ClCompile Include="src\menu\menuHandler.cpp" />
+    <ClCompile Include="src\menu\menuPobieranie.cpp" />
+    <ClCompile Include="src\menu\menuPrint.cpp" />
+    <ClCompile Include="src\others\fileHandler.cpp" />
+    <ClCompile Include="src\others\funkcje.cpp" />
+    <ClCompile Include="src\others\log.cpp" />
+    <ClCompile Include="src\others\manager.cpp" />
+    <ClCompile Include="src\others\storageHandler.cpp" />
+    <ClCompile Include="src\producenci\producent.cpp" />
+    <ClCompile Include="src\producenci\producentHandler.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

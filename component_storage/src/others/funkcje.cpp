@@ -3,7 +3,7 @@
 #include <sstream>
 #include <unordered_map>
 #include <algorithm>
-#include "../others/log.h"
+#include "others/log.h"
 
 //!  ____           _____ _____ _____ 
 //! |  _ \   /\    / ____|_   _/ ____|

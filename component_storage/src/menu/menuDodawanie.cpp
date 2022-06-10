@@ -1,6 +1,6 @@
 #include "menuDodawanie.h"
-#include "../others/funkcje.h"
-#include "../others/manager.h"
+#include "others/funkcje.h"
+#include "others/manager.h"
 
 void MenuDodawanie::run() {
     Manager mng;
