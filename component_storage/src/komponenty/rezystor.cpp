@@ -73,12 +73,11 @@ bool Rezystor::operator==(const Komponent& obj){
 		(moc == default_si || moc == casted.moc);
 	return false;
 }
-std::ostream& Rezystor::operator<<(std::ostream& ostr){
-	Komponent::operator<<(ostr);
+void Rezystor::saveData(std::ostream& ostr){
+	Komponent::saveData(ostr);
 	ostr << ' ' << rezystancja.first << rezystancja.second << ' ' <<
 	tolerancja << ' ' <<
 	moc.first << moc.second;
-	return ostr;
 }
 void Rezystor::exportData(std::ostream& os){
 	Komponent::exportData(os);

@@ -38,7 +38,7 @@ public:
 	//operatory
 	virtual bool operator==(const Komponent&);
 	virtual bool operator!=(const Komponent&);
-	virtual std::ostream& operator<<(std::ostream&);
+	virtual void saveData(std::ostream&);
 	virtual void exportData(std::ostream&);
 protected:
 

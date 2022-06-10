@@ -73,14 +73,13 @@ bool UkladScalony::operator==(const Komponent& obj){
 		(napiecie_pracy == default_si || napiecie_pracy == casted.napiecie_pracy);
 	return false;
 }
-std::ostream& UkladScalony::operator<<(std::ostream& ostr){
-	Komponent::operator<<(ostr);
+void UkladScalony::saveData(std::ostream& ostr){
+	Komponent::saveData(ostr);
 	ostr;
     if(!model.empty()) ostr << ' ' << model;
     else ostr << ' ' << "nieznany";
 	ostr  << ' ' << piny << ' ' <<
 	napiecie_pracy.first << napiecie_pracy.second;
-	return ostr;
 }
 void UkladScalony::exportData(std::ostream& os){
 	Komponent::exportData(os);

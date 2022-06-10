@@ -14,6 +14,7 @@ public:
     void listProducents();
     void exportToFile();
 private:
+    static const std::string producentfile;
     std::vector<Producent>producenci;
 };
 

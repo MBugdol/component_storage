@@ -16,7 +16,7 @@ public:
 	static compPtr create(std::istream&);
 	//operatory
 	bool operator==(const Komponent&);
-	std::ostream& operator<<(std::ostream&);
+	void saveData(std::ostream&);
 	void exportData(std::ostream&) override;
 private:
 	static InductorParams getValues();

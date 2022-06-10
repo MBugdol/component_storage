@@ -11,10 +11,11 @@ class StorageHandler
 public:
 	void addComponent(ComponentType);
 	void takeComponent(ComponentType);
-	void getComponentsFromFile(std::ifstream&);
+	void loadFromFile();
 	void exportToFile();
 	void saveToFile();
 private:
+	static const std::string storagefile;
 	std::vector<compPtr> magazyn;
 	compPtr createComponent(ComponentType);
 	compPtr createComponent(ComponentType, std::istream&);

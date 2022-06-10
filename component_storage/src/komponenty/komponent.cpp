@@ -28,12 +28,11 @@ bool Komponent::operator==(const Komponent& obj){
 bool Komponent::operator!=(const Komponent& obj){
     return !(Komponent::operator==(obj));
 }
-std::ostream& Komponent::operator<<(std::ostream& ostr) {
+void Komponent::saveData(std::ostream& ostr) {
     ostr << convertToString(rodzaj) << 
     ' ' << convertToString(montaz);
     if(!prod.empty()) ostr << ' ' << prod;
     else ostr << ' ' << "nieznany"; 
-    return ostr;
 }
 void Komponent::exportData(std::ostream& os){
     os << convertToString(rodzaj);

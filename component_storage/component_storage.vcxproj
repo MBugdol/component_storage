@@ -97,7 +97,6 @@
     <ClInclude Include="src\menu\menuPrint.h" />
     <ClInclude Include="src\others\fileHandler.h" />
     <ClInclude Include="src\others\funkcje.h" />
-    <ClInclude Include="src\others\log.h" />
     <ClInclude Include="src\others\manager.h" />
     <ClInclude Include="src\others\storageHandler.h" />
     <ClInclude Include="src\producenci\producent.h" />
@@ -120,11 +119,14 @@
     <ClCompile Include="src\menu\menuPrint.cpp" />
     <ClCompile Include="src\others\fileHandler.cpp" />
     <ClCompile Include="src\others\funkcje.cpp" />
-    <ClCompile Include="src\others\log.cpp" />
     <ClCompile Include="src\others\manager.cpp" />
     <ClCompile Include="src\others\storageHandler.cpp" />
     <ClCompile Include="src\producenci\producent.cpp" />
     <ClCompile Include="src\producenci\producentHandler.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="io\manufacturer.txt" />
+    <Text Include="io\storage.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -36,16 +36,16 @@ define POSTBUILDCMDS
 endef
 
 ifeq ($(config),debug)
-TARGETDIR = ../bin/linux-Debug-x86_64
-TARGET = $(TARGETDIR)/component_storage
-OBJDIR = ../bin-int/linux-Debug-x86_64
+TARGETDIR = ../bin/windows-Debug-x86_64
+TARGET = $(TARGETDIR)/component_storage.exe
+OBJDIR = ../bin-int/windows-Debug-x86_64
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O0
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O0
 
 else ifeq ($(config),release)
-TARGETDIR = ../bin/linux-Release-x86_64
-TARGET = $(TARGETDIR)/component_storage
-OBJDIR = ../bin-int/linux-Release-x86_64
+TARGETDIR = ../bin/windows-Release-x86_64
+TARGET = $(TARGETDIR)/component_storage.exe
+OBJDIR = ../bin-int/windows-Release-x86_64
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2
 

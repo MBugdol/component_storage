@@ -1,14 +1,13 @@
 #include "fileHandler.h"
 #include "funkcje.h"
 
-FileHandler::FileHandler(std::string fname)
-    {
-        filename = fname;
-    }
+const std::string FileHandler::filepath = "./io/";
+
+FileHandler::FileHandler(const std::string& fname) : filename{ fname } {}
     
 //!input
 void FileHandler::startInput(){
-    in_file.open(filename);
+    in_file.open(filepath+filename);
     if(!in_file) {
         std::string errormsg = "Plik " + filename + " nie istnieje lub jest zajety!";
         throw errormsg;
@@ -17,13 +16,10 @@ void FileHandler::startInput(){
 void FileHandler::stopInput(){
     in_file.close();
 }
-void FileHandler::getFileNameFromMain(int argc, char** argv){
-    if(argc != 2) throw std::string("Zła ilość argumentów funkcji main");
-    filename = argv[1];
-}
+
 //!output
 void FileHandler::startOutput() {
-    out_file.open(filename);
+    out_file.open(filepath+filename);
     if(!out_file) {
         std::string errormsg = "Plik " + filename + " nie istnieje lub jest zajety!";
         throw errormsg;

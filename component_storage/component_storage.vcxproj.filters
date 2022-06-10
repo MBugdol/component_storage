@@ -60,9 +60,6 @@
     <ClInclude Include="src\others\funkcje.h">
       <Filter>others</Filter>
     </ClInclude>
-    <ClInclude Include="src\others\log.h">
-      <Filter>others</Filter>
-    </ClInclude>
     <ClInclude Include="src\others\manager.h">
       <Filter>others</Filter>
     </ClInclude>
@@ -123,9 +120,6 @@
     <ClCompile Include="src\others\funkcje.cpp">
       <Filter>others</Filter>
     </ClCompile>
-    <ClCompile Include="src\others\log.cpp">
-      <Filter>others</Filter>
-    </ClCompile>
     <ClCompile Include="src\others\manager.cpp">
       <Filter>others</Filter>
     </ClCompile>
@@ -138,5 +132,9 @@
     <ClCompile Include="src\producenci\producentHandler.cpp">
       <Filter>producenci</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="io\storage.txt" />
+    <Text Include="io\manufacturer.txt" />
   </ItemGroup>
 </Project>

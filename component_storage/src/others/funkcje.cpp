@@ -3,7 +3,6 @@
 #include <sstream>
 #include <unordered_map>
 #include <algorithm>
-#include "others/log.h"
 
 //!  ____           _____ _____ _____ 
 //! |  _ \   /\    / ____|_   _/ ____|
@@ -237,7 +236,6 @@ ComponentType getComponentType(std::istream& istr){
 		return result;
 	}
 	catch(std::string errormsg){
-		Log::error(errormsg);
 		throw std::string("Bledny typ komponentu! Przechodzenie do kolejnej linii...");
 	}
 }
@@ -287,7 +285,6 @@ SolderType getSolderType(std::istream& istr){
 		return convertToSolderType(input);
 	}
 	catch(std::string errormsg){
-		Log::error(errormsg);
 		throw std::string("Bledny typ montazu! Pomijanie komponentu...");
 	}
 }

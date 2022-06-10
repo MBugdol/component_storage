@@ -5,8 +5,10 @@
 #include "../others/fileHandler.h"
 #include "../others/funkcje.h"
 
+const std::string ProducentHandler::producentfile = "manufacturer.txt";
+
 void ProducentHandler::loadFromFile(){
-    FileHandler fh("manufacturer.txt");
+    FileHandler fh(producentfile);
     fh.startInput();
     std::string line;
     while(std::getline(fh.getInput(), line)){
@@ -23,7 +25,7 @@ void ProducentHandler::loadFromFile(){
     fh.stopInput();
 }
 void ProducentHandler::saveToFile(){
-    FileHandler fh("manufacturer.txt");
+    FileHandler fh(producentfile);
     fh.startOutput();
     for(Producent obj : producenci){
         fh.getOutput() << obj << std::endl;

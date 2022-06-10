@@ -73,12 +73,11 @@ bool Kondensator::operator==(const Komponent& obj){
 		(napiecie_pracy == default_si || napiecie_pracy == casted.napiecie_pracy);
 	return false;
 }
-std::ostream& Kondensator::operator<<(std::ostream& ostr){
-	Komponent::operator<<(ostr);
+void Kondensator::saveData(std::ostream& ostr){
+	Komponent::saveData(ostr);
 	ostr << ' ' << pojemnosc.first << pojemnosc.second << ' ' <<
 	tolerancja << ' ' <<
 	napiecie_pracy.first << napiecie_pracy.second;
-	return ostr;
 }
 void Kondensator::exportData(std::ostream& os){
 	Komponent::exportData(os);

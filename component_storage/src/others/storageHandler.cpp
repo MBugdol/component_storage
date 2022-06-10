@@ -7,8 +7,10 @@
 #include "komponenty/cewka.h"
 #include "komponenty/tranzystor.h"
 #include "komponenty/ukladScalony.h"
-#include "manager.h"
+#include "fileHandler.h"
 #include "funkcje.h"
+
+const std::string StorageHandler::storagefile = "storage.txt";
 
 //!  _______ ______ _____  __  __ _____ _   _          _      
 //! |__   __|  ____|  __ \|  \/  |_   _| \ | |   /\   | |     
@@ -39,7 +41,6 @@ compPtr StorageHandler::createComponent(ComponentType type){
     return nullptr;
 }
 void StorageHandler::addComponent(ComponentType type){
-    Manager mng;
     compPtr newComponent = createComponent(type);
     magazyn.push_back(newComponent);
 }
@@ -84,9 +85,11 @@ compPtr StorageHandler::createComponent(ComponentType type, std::istream& istr){
     }
     return nullptr;
 }
-void StorageHandler::getComponentsFromFile(std::ifstream& ifile){
+void StorageHandler::loadFromFile(){
+    FileHandler fh(storagefile);
+    fh.startInput();
     std::string line;
-    while(std::getline(ifile, line)){
+    while(std::getline(fh.getInput(), line)) {
         try {
             if(line.empty()) continue;   
             std::istringstream iss(line);
@@ -100,10 +103,12 @@ void StorageHandler::getComponentsFromFile(std::ifstream& ifile){
             std::cout << "Pominieto wiersz" << std::endl;
         }
     }
+    fh.stopInput();
 }
 void StorageHandler::exportToFile(){
     std::string filename = getString("Podaj nazwe pliku do eksportu");
     FileHandler fh(filename);
+    std::cout << filename << std::endl;
     fh.startOutput();
     for(compPtr komponent : magazyn){
         komponent -> exportData(fh.getOutput());
@@ -112,11 +117,11 @@ void StorageHandler::exportToFile(){
     fh.stopOutput();
 }
 void StorageHandler::saveToFile(){
-    Manager mng;
-    mng.file().startOutput();
+    FileHandler fh(storagefile);
+    fh.startOutput();
     for(compPtr komponent : magazyn){
-        komponent -> operator<<(mng.file().getOutput());
-        mng.file().getOutput() << std::endl;
+        komponent -> exportData(fh.getOutput());
+        fh.getOutput() << std::endl;
     }
-    mng.file().stopOutput();
+    fh.stopOutput();
 }

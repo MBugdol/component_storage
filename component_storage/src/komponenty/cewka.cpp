@@ -73,12 +73,11 @@ bool Cewka::operator==(const Komponent& obj){
 		(prad_nasycenia == default_si || prad_nasycenia == casted.prad_nasycenia);
 	return false;
 }
-std::ostream& Cewka::operator<<(std::ostream& ostr){
-	Komponent::operator<<(ostr);
+void Cewka::saveData(std::ostream& ostr){
+	Komponent::saveData(ostr);
 	ostr << ' ' << induktancja.first << induktancja.second << ' ' <<
 	tolerancja << ' ' <<
 	prad_nasycenia.first << prad_nasycenia.second;
-	return ostr;
 }
 void Cewka::exportData(std::ostream& os){
 	Komponent::exportData(os);

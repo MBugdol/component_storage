@@ -73,14 +73,13 @@ bool Tranzystor::operator==(const Komponent& obj){
 		(prad_kolektora == default_si || prad_kolektora == casted.prad_kolektora);
 	return false;
 }
-std::ostream& Tranzystor::operator<<(std::ostream& ostr){
-	Komponent::operator<<(ostr);
+void Tranzystor::saveData(std::ostream& ostr){
+	Komponent::saveData(ostr);
 	ostr;
     if(!model.empty()) ostr << ' ' << model;
 	else ostr << ' ' << "nieznany";
     ostr  << ' ' << beta << ' ' <<
 	prad_kolektora.first << prad_kolektora.second;
-	return ostr;
 }
 void Tranzystor::exportData(std::ostream& os){
 	Komponent::exportData(os);
