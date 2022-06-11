@@ -22,6 +22,9 @@ void ManufacturerMenu::run(){
         case 4:
             mng.manufacturer().deleteProducent();
             break;
+        default:
+            std::cout << "Nie ma takiej opcji w menu!" << std::endl;
+            break;
         }
     }
 }

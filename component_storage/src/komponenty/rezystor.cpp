@@ -53,6 +53,8 @@ ResistorParams Rezystor::getValues(std::istream& istr){
 	data.resistance = getSIUnit(istr);
 	data.tolerance = getDouble(istr);
 	data.power = getSIUnit(istr);
+	Manager mng;
+	mng.manufacturer().addProducent(Producent{data.manufacturer, "nieznany"});
 	return data;
 }
 
@@ -75,9 +77,9 @@ bool Rezystor::operator==(const Komponent& obj){
 }
 void Rezystor::saveData(std::ostream& ostr){
 	Komponent::saveData(ostr);
-	ostr << ' ' << rezystancja.first << rezystancja.second << ' ' <<
-	tolerancja << ' ' <<
-	moc.first << moc.second;
+	ostr << ';' << rezystancja.first << rezystancja.second << ';' <<
+	tolerancja << ';' <<
+	moc.first << moc.second << ';';
 }
 void Rezystor::exportData(std::ostream& os){
 	Komponent::exportData(os);

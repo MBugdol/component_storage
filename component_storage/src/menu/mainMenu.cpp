@@ -29,6 +29,9 @@ void MainMenu::run() {
 			mng.menu().setStatus(Status::offline);
 			MainMenu::running = false;
 			break;
+		default:
+			std::cout << "Nie ma takiej opcji w menu!" << std::endl;
+			break;
 		}
 	}
 	

@@ -1,0 +1,4 @@
+POLSL:
+	Adres : Akademicka16,Gliwice
+Botland:
+	Adres : Gola25A,Gola

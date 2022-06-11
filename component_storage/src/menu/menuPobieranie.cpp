@@ -14,8 +14,10 @@ void MenuPobieranie::run() {
             MenuPobieranie::running = false;
             break;
         case 1: case 2: case 3: case 4: case 5:
-            ComponentType type = convertToComponentType(choice);
-            mng.storage().takeComponent(type);
+            mng.storage().takeComponent(convertToComponentType(choice));
+            break;
+        default:
+            std::cout << "Nie ma takiej opcji w menu!" << std::endl;
             break;
         }
     }

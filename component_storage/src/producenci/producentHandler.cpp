@@ -5,8 +5,52 @@
 #include "../others/fileHandler.h"
 #include "../others/funkcje.h"
 
-const std::string ProducentHandler::producentfile = "manufacturer.txt";
+const std::string ProducentHandler::producentfile = "manufacturer.csv";
 
+void ProducentHandler::addProducent(){
+    Producent obj = getProducent();
+    if(std::find(producenci.begin(), producenci.end(), obj) != producenci.end()){
+        std::cout << "Producent o podanej nazwie znajduje sie juz na liscie!" << std::endl;
+        return;
+    }
+    producenci.push_back(obj);
+}
+void ProducentHandler::addProducent(Producent obj){
+    if(std::find(producenci.begin(), producenci.end(), obj) != producenci.end() || obj.getName().empty()) 
+        return;
+    producenci.push_back(obj);
+}
+void ProducentHandler::modifyProducent(){
+    std::string name = getString("Podaj nazwe producenta, ktorego dane chcesz zmienic");
+    Producent to_change = {name, ""};
+    auto pos = std::find(producenci.begin(), producenci.end(), to_change);
+    if(pos == producenci.end()){
+        std::cout << "Producent o podanej nazwie nie znajduje sie w bazie!" << std::endl;
+        return;
+    }
+    pos->setAdress(getString("Podaj nowy adres"));
+}
+void ProducentHandler::deleteProducent(){
+    std::string name = getString("Podaj nazwe producenta, ktorego chcesz usunac");
+    Producent to_delete = {name, ""};
+    auto pos = std::find(producenci.begin(), producenci.end(), to_delete);
+    if(pos == producenci.end()){ 
+        std::cout << "Producent o podanej nazwie nie znajduje sie w bazie!" << std::endl;
+        return;
+    }
+    producenci.erase(pos);
+}
+
+void ProducentHandler::listProducents(){
+    if(producenci.size() == 0){
+        std::cout << "Nie ma jeszcze w bazie zadnych producentow" << std::endl;
+        return;
+    }
+    for(int i = 0; i < producenci.size(); i++) {
+        std::cout << i+1 << "] ";
+        producenci[i].display();
+    }
+}
 void ProducentHandler::loadFromFile(){
     FileHandler fh(producentfile);
     fh.startInput();
@@ -33,51 +77,8 @@ void ProducentHandler::saveToFile(){
     }
     fh.stopOutput();
 }
-void ProducentHandler::addProducent(){
-    Producent obj = getProducent();
-    if(std::find(producenci.begin(), producenci.end(), obj) != producenci.end()){
-        std::cout << "Producent o podanej nazwie znajduje sie juz na liscie!" << std::endl;
-        return;
-    }
-    producenci.push_back(obj);
-}
-void ProducentHandler::addProducent(Producent obj){
-    if(std::find(producenci.begin(), producenci.end(), obj) != producenci.end() || obj.getName().empty()) 
-        return;
-    producenci.push_back(obj);
-}
-void ProducentHandler::deleteProducent(){
-    std::string name = getString("Podaj nazwe producenta, ktorego chcesz usunac");
-    Producent to_delete = {name, ""};
-    auto pos = std::find(producenci.begin(), producenci.end(), to_delete);
-    if(pos == producenci.end()){ 
-        std::cout << "Producent o podanej nazwie nie znajduje sie w bazie!" << std::endl;
-        return;
-    }
-    producenci.erase(pos);
-}
-void ProducentHandler::modifyProducent(){
-    std::string name = getString("Podaj nazwe producenta, ktorego dane chcesz zmienic");
-    Producent to_change = {name, ""};
-    auto pos = std::find(producenci.begin(), producenci.end(), to_change);
-    if(pos == producenci.end()){
-        std::cout << "Producent o podanej nazwie nie znajduje sie w bazie!" << std::endl;
-        return;
-    }
-    pos->setAdress(getString("Podaj nowy adres"));
-}
-void ProducentHandler::listProducents(){
-    if(producenci.size() == 0){
-        std::cout << "Nie ma jeszcze w bazie zadnych producentow" << std::endl;
-        return;
-    }
-    for(int i = 0; i < producenci.size(); i++) {
-        std::cout << i+1 << "] ";
-        producenci[i].display();
-    }
-}
 void ProducentHandler::exportToFile(){
-    std::string filename = getString("Podaj nazwe pliku do eksportu");
+    std::string filename = getString("Podaj nazwe pliku do eksportu (domyslnie: prodexp.txt)", "prodexp.txt");
     if(filename == "storage.txt" || filename == "manufacturer.txt") {
         std::cout << "Ta nazwa pliku jest niedozwolona!" << std::endl;
         return;

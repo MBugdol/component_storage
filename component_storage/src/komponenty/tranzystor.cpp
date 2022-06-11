@@ -38,7 +38,7 @@ TransistorParams Tranzystor::getValues() {
 	data.type = ComponentType::Tranzystor;
 	data.solder = getSolderType("Podaj typ montazu (tht/smt)");
 	data.manufacturer = getString("Podaj nazwe producenta");
-	data.model = getString("Podaj nazwe modelu");
+	data.model = copyToLower(getString("Podaj nazwe modelu"));
 	data.beta = getDouble("Podaj bete/wzmocnienie");
 	data.collector_current = getSIUnit("Podaj prad kolektora");
 	Manager mng;
@@ -50,9 +50,11 @@ TransistorParams Tranzystor::getValues(std::istream& istr){
 	data.type = ComponentType::Tranzystor;
 	data.solder = getSolderType(istr);
 	data.manufacturer = getString(istr);
-	data.model = getString(istr);
+	data.model = copyToLower(getString(istr));
 	data.beta = getDouble(istr);
 	data.collector_current = getSIUnit(istr);
+	Manager mng;
+	mng.manufacturer().addProducent(Producent{data.manufacturer, "nieznany"});
 	return data;
 }
 
@@ -76,10 +78,10 @@ bool Tranzystor::operator==(const Komponent& obj){
 void Tranzystor::saveData(std::ostream& ostr){
 	Komponent::saveData(ostr);
 	ostr;
-    if(!model.empty()) ostr << ' ' << model;
-	else ostr << ' ' << "nieznany";
-    ostr  << ' ' << beta << ' ' <<
-	prad_kolektora.first << prad_kolektora.second;
+    if(!model.empty()) ostr << ';' << model;
+	else ostr << ';' << "nieznany";
+    ostr  << ';' << beta << ';' <<
+	prad_kolektora.first << prad_kolektora.second << ';';
 }
 void Tranzystor::exportData(std::ostream& os){
 	Komponent::exportData(os);

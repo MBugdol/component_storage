@@ -38,7 +38,7 @@ IntegratedCircuitParams UkladScalony::getValues() {
 	data.type = ComponentType::UkladSc;
 	data.solder = getSolderType("Podaj typ montazu (tht/smt)");
 	data.manufacturer = getString("Podaj nazwe producenta");
-	data.model = getString("Podaj nazwe modelu");
+	data.model = copyToLower(getString("Podaj nazwe modelu"));
 	data.pin_count = getInt("Podaj ilosc pinow");
 	data.working_voltage = getSIUnit("Podaj napiecie pracy");
 	Manager mng;
@@ -50,9 +50,11 @@ IntegratedCircuitParams UkladScalony::getValues(std::istream& istr){
 	data.type = ComponentType::UkladSc;
 	data.solder = getSolderType(istr);
 	data.manufacturer = getString(istr);
-	data.model = getString(istr);
+	data.model = copyToLower(getString(istr));
 	data.pin_count = getInt(istr);
 	data.working_voltage = getSIUnit(istr);
+	Manager mng;
+	mng.manufacturer().addProducent(Producent{data.manufacturer, "nieznany"});
 	return data;
 }
 
@@ -76,10 +78,10 @@ bool UkladScalony::operator==(const Komponent& obj){
 void UkladScalony::saveData(std::ostream& ostr){
 	Komponent::saveData(ostr);
 	ostr;
-    if(!model.empty()) ostr << ' ' << model;
-    else ostr << ' ' << "nieznany";
-	ostr  << ' ' << piny << ' ' <<
-	napiecie_pracy.first << napiecie_pracy.second;
+    if(!model.empty()) ostr << ';' << model;
+    else ostr << ';' << "nieznany";
+	ostr  << ';' << piny << ';' <<
+	napiecie_pracy.first << napiecie_pracy.second << ';';
 }
 void UkladScalony::exportData(std::ostream& os){
 	Komponent::exportData(os);

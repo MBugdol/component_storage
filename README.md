@@ -21,3 +21,8 @@ Program po uruchomieniu daje uzytkownikowi mozliwosc wyboru sposrod jednej z opc
     - Wybranie opcji dodania lub pobrania komponentu prosi uzytkownika o podanie typu komponentu, a nastepnie prosi o dodatkowe parametry. W przypadku checi pominiecia konkretnego parametru mozna to zrobic, zostawiajac puste wejscie. Na koncu procedury komponent zostanie dodany do magazynu badz, w wypadku checi pobrania, zostanie sprawdzone, czy istnieje taki komponent (pominiecie parametru przy szukaniu komponentu jest uznawane za dopasowanie do kazdego parametru)
     - Wybranie opcji menu producentow stawia uzytkownika przed wyborem wyswietlenia listy producentow, dodania nowego, zmiany danych obecnie istniejacego lub usuniecia wybranego z bazy. Przy ostatnich dwoch opcjach nalezy podac nazwe zadanego producenta, ktorego uzytkownik chce zmodyfikowac/usunac
     - Wybranie opcji eksportu daje uzytkownikowi wybor miedzy eksportem danych magazynu lub bazy danych producentow. Po wybraniu opcji uzytkownik zostanie poproszony o podanie nazwy pliku, do ktorego pragnie zapisac dane. Pliki zapisywane sa w folderze "component_storage/io".
+    -Wybranie opcji zakonczenia programu konczy go
+
+Program zapisuje swoje dane do plikow storage.csv i manufacturer.csv, znajdujacych sie w folderze component_storage/io.
+
+W folderze proj_scripts znajduja sie skrypty generujace pliki projektu dla Visual Studio 2022 i Makefile. W tym celu uzywany jest program premake5, znajdujacy sie w folderze vendor. 

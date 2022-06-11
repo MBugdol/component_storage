@@ -1,4 +1,5 @@
 #include "producent.h"
+#include "others/funkcje.h"
 #include <iostream>
 
 Producent::Producent(const std::string& n_nazwa, const std::string& n_adres)
@@ -17,9 +18,11 @@ void Producent::display(){
 }
 
 bool operator==(const Producent& obj1, const Producent& obj2){
-    return obj1.nazwa == obj2.nazwa;
+    return copyToLower(obj1.nazwa) == copyToLower(obj2.nazwa);
 }
 std::ostream& operator<<(std::ostream& ostr, const Producent& obj){
-    ostr << obj.nazwa << ' ' << obj.adres;
+    ostr << obj.nazwa << ';';;
+    if(obj.adres.empty()) ostr << "nieznany" << ';';
+    else ostr << obj.adres << ';';
     return ostr;
 }

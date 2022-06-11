@@ -53,6 +53,8 @@ InductorParams Cewka::getValues(std::istream& istr){
 	data.inductance = getSIUnit(istr);
 	data.tolerance = getDouble(istr);
 	data.saturation_current = getSIUnit(istr);
+	Manager mng;
+	mng.manufacturer().addProducent(Producent{data.manufacturer, "nieznany"});
 	return data;
 }
 
@@ -75,9 +77,9 @@ bool Cewka::operator==(const Komponent& obj){
 }
 void Cewka::saveData(std::ostream& ostr){
 	Komponent::saveData(ostr);
-	ostr << ' ' << induktancja.first << induktancja.second << ' ' <<
-	tolerancja << ' ' <<
-	prad_nasycenia.first << prad_nasycenia.second;
+	ostr << ';' << induktancja.first << induktancja.second << ';' <<
+	tolerancja << ';' <<
+	prad_nasycenia.first << prad_nasycenia.second << ';';
 }
 void Cewka::exportData(std::ostream& os){
 	Komponent::exportData(os);

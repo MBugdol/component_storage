@@ -19,6 +19,9 @@ void MenuPrint::run(){
             mng.manufacturer().exportToFile();
             mng.menu().setStatus(Status::mainMenu);
             break;
+        default:
+            std::cout << "Nie ma takiej opcji w menu!" << std::endl;
+            break;
         }
     }
 }

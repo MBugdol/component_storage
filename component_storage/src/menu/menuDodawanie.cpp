@@ -16,8 +16,10 @@ void MenuDodawanie::run() {
             break;
         //dodawanie komponentu
         case 1: case 2: case 3: case 4: case 5:
-            ComponentType type = convertToComponentType(choice);
-            mng.storage().addComponent(type);
+            mng.storage().addComponent(convertToComponentType(choice));
+            break;
+        default:
+            std::cout << "Nie ma takiej opcji w menu!" << std::endl;
             break;
         }
     }      

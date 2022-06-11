@@ -53,6 +53,8 @@ CapacitorParams Kondensator::getValues(std::istream& istr){
 	data.capacitance = getSIUnit(istr);
 	data.tolerance = getDouble(istr);
 	data.working_voltage = getSIUnit(istr);
+	Manager mng;
+	mng.manufacturer().addProducent(Producent{data.manufacturer, "nieznany"});
 	return data;
 }
 
@@ -75,9 +77,9 @@ bool Kondensator::operator==(const Komponent& obj){
 }
 void Kondensator::saveData(std::ostream& ostr){
 	Komponent::saveData(ostr);
-	ostr << ' ' << pojemnosc.first << pojemnosc.second << ' ' <<
-	tolerancja << ' ' <<
-	napiecie_pracy.first << napiecie_pracy.second;
+	ostr << ';' << pojemnosc.first << pojemnosc.second << ';' <<
+	tolerancja << ';' <<
+	napiecie_pracy.first << napiecie_pracy.second << ';';
 }
 void Kondensator::exportData(std::ostream& os){
 	Komponent::exportData(os);

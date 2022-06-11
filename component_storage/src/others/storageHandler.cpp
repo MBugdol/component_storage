@@ -10,7 +10,7 @@
 #include "fileHandler.h"
 #include "funkcje.h"
 
-const std::string StorageHandler::storagefile = "storage.txt";
+const std::string StorageHandler::storagefile = "storage.csv";
 
 //  _______ ______ _____  __  __ _____ _   _          _      
 // |__   __|  ____|  __ \|  \/  |_   _| \ | |   /\   | |     
@@ -93,20 +93,20 @@ void StorageHandler::loadFromFile(){
         try {
             if(line.empty()) continue;   
             std::istringstream iss(line);
-            std::string compTypeStr;
-            iss >> compTypeStr;
+            std::string compTypeStr = getString(iss);
             ComponentType compType = convertToComponentType(compTypeStr);
             compPtr newComponent = createComponent(compType, iss);
             magazyn.push_back(newComponent);
         }
         catch(std::string errormsg){
+            std::cout << errormsg << '-';
             std::cout << "Pominieto wiersz" << std::endl;
         }
     }
     fh.stopInput();
 }
 void StorageHandler::exportToFile(){
-    std::string filename = getString("Podaj nazwe pliku do eksportu");
+    std::string filename = getString("Podaj nazwe pliku do eksportu (domyslnie: magexp.txt)", "prodexp.txt");
     if(filename == "storage.txt" || filename == "manufacturer.txt") {
         std::cout << "Ta nazwa pliku jest niedozwolona!" << std::endl;
         return;
@@ -124,7 +124,7 @@ void StorageHandler::saveToFile(){
     FileHandler fh(storagefile);
     fh.startOutput();
     for(compPtr komponent : magazyn){
-        komponent -> exportData(fh.getOutput());
+        komponent -> saveData(fh.getOutput());
         fh.getOutput() << std::endl;
     }
     fh.stopOutput();

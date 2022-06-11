@@ -1,0 +1,6 @@
+rezystor tht POLSL 10kohm 5% 10W
+kondensator smt POLSL 500uF 2.5% 5V
+cewka tht POLSL 250nH 15% 2A
+tranzystor tht Botland 400x 25mA
+ukladscalony tht Botland ne555 8pinow 5V
+rezystor

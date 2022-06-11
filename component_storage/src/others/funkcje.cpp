@@ -20,7 +20,6 @@ int getInt(const std::string& msg, int default_val){
 
 			int val = std::stoi(input);
 			if(val < 0) {
-				std::cout << "Wejscie ujemne - przyjeto wartosc domyslna..." << std::endl;
 				return default_val;
 			}
 
@@ -60,7 +59,6 @@ double getDouble(const std::string& msg, double default_val) {
 
 			double val = std::stod(input);
 			if(val < 0) {
-				std::cout << "Wejscie ujemne - przyjeto wartosc domyslna..." << std::endl;
 				return default_val;
 			}
 			
@@ -105,12 +103,14 @@ std::string getString(const std::string& msg, std::string default_val){
 	if(input.empty()) return default_val; //wartosc domyslna
 	return input;
 }
-std::string getString(std::istream& istr){
+std::string getString(std::istream& istr, char delim){
 	std::string input;
-	if(!(istr >> input)) throw std::string("Nie udalo sie pobrac wartosci typu string ze strumienia!");
+	if(!std::getline(istr, input, delim)) throw std::string("Nie udalo sie pobrac wartosci typu string ze strumienia!");
+	removeWhiteSpace(input);
 	if(input == "nieznany") return "";
 	return input;
 }
+
 std::string convertToString(ComponentType type) {
 	std::unordered_map<ComponentType, std::string> convert = {
 		{ComponentType::Rezystor, "rezystor"},
@@ -136,6 +136,11 @@ inline void removeWhiteSpace(std::string& str){
 }
 inline void convertToLower(std::string& str){
 	std::transform(str.begin(), str.end(), str.begin(), [](char ch){return std::tolower(ch);});
+}
+std::string copyToLower(const std::string& str) {
+	std::string resstr = str;
+	std::transform(resstr.begin(), resstr.end(), resstr.begin(), [](char ch){return std::tolower(ch);});
+	return resstr;
 }
 
 //   _____ _____ _    _ _   _ _____ _______ 
@@ -179,7 +184,6 @@ SIUnit convertToSI(const std::string& input){
 	if(iss >> value) {
 		if(value < 0){
 			value = -1;
-			std::cout << "Podano wartosc ujemna - przyjeto wartosc domyslna!" << std::endl;
 		}
 		if(iss >> unit)
 			return std::make_pair(value, unit);
@@ -295,7 +299,7 @@ SolderType getSolderType(std::istream& istr){
 }
 SolderType convertToSolderType(std::string& str) {
 	std::unordered_map<std::string, SolderType> convert = {
-		{"nieznany", SolderType::Undefined},
+		{"", SolderType::Undefined},
 		{"tht", SolderType::THT},
 		{"smt", SolderType::SMT},
 		{"smd", SolderType::SMT}

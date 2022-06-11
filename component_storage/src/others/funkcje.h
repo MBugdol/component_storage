@@ -18,12 +18,12 @@ SIUnit standardiseSI(SIUnit&);
 // String
 // 
 std::string getString(const std::string&, std::string = "");
-std::string getString(std::istream&);
+std::string getString(std::istream&, char delim = ';');
 std::string convertToString(ComponentType);
 std::string convertToString(SolderType);
 inline void removeWhiteSpace(std::string&);
 inline void convertToLower(std::string&);
-
+std::string copyToLower(const std::string&);
 //
 // Basic
 //

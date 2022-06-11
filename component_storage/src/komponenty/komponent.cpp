@@ -22,7 +22,7 @@ Komponent::Komponent(const ComponentParams& data)
                                                                  
 bool Komponent::operator==(const Komponent& obj){
     return (rodzaj == obj.rodzaj) &&
-        (prod == "" || prod == obj.prod) &&
+        (prod == "" || (copyToLower(prod) == copyToLower(obj.prod))) &&
         (montaz == SolderType::Undefined || montaz == obj.montaz);   
 }
 bool Komponent::operator!=(const Komponent& obj){
@@ -30,9 +30,9 @@ bool Komponent::operator!=(const Komponent& obj){
 }
 void Komponent::saveData(std::ostream& ostr) {
     ostr << convertToString(rodzaj) << 
-    ' ' << convertToString(montaz);
-    if(!prod.empty()) ostr << ' ' << prod;
-    else ostr << ' ' << "nieznany"; 
+    ';' << convertToString(montaz);
+    if(!prod.empty()) ostr << ';' << prod;
+    else ostr << ';' << "nieznany"; 
 }
 void Komponent::exportData(std::ostream& os){
     os << convertToString(rodzaj);
