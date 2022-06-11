@@ -106,13 +106,12 @@ void StorageHandler::loadFromFile(){
     fh.stopInput();
 }
 void StorageHandler::exportToFile(){
-    std::string filename = getString("Podaj nazwe pliku do eksportu (domyslnie: magexp.txt)", "prodexp.txt");
+    std::string filename = getString("Podaj nazwe pliku do eksportu (domyslnie: magexp.txt)", "magexp.txt");
     if(filename == "storage.txt" || filename == "manufacturer.txt") {
         std::cout << "Ta nazwa pliku jest niedozwolona!" << std::endl;
         return;
     }
     FileHandler fh(filename);
-    std::cout << filename << std::endl;
     fh.startOutput();
     for(compPtr komponent : magazyn){
         komponent -> exportData(fh.getOutput());

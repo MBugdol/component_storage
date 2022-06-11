@@ -33,9 +33,9 @@ project "component_storage"
         "%{prj.name}/src/others/**.cpp"
     }
     
-    cppdialect "C++17"
-
     filter "configurations:Debug"
+        cppdialect "C++17"
         optimize "Off"
     filter "configurations:Release"
+        cppdialect "C++17"
         optimize "On"

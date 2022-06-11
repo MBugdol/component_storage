@@ -6,12 +6,12 @@
 #include "others/fileHandler.h"
 #include "others/funkcje.h"
 
-int main() {
+int main(int argc, char** argv) {
+	FileHandler::setFilepath(argv[0]);
 	//try-catch dla bledow poziomu fatal
 	try 
 	{
 		Manager manager;
-		FileHandler fh("Help");
 
 		manager.manufacturer().loadFromFile();	
 		manager.storage().loadFromFile();

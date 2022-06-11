@@ -1,2 +1,22 @@
-﻿  storageHandler.cpp
+﻿  cewka.cpp
+  komponent.cpp
+  kondensator.cpp
+  rezystor.cpp
+  tranzystor.cpp
+  ukladScalony.cpp
+  main.cpp
+  mainMenu.cpp
+  manufacturerMenu.cpp
+  menu.cpp
+  menuDodawanie.cpp
+  menuHandler.cpp
+  menuPobieranie.cpp
+  menuPrint.cpp
+  fileHandler.cpp
+  funkcje.cpp
+  manager.cpp
+  storageHandler.cpp
+  producent.cpp
+  producentHandler.cpp
+  Generowanie kodu...
   component_storage.vcxproj -> C:\dev\component_storage\bin\windows-Debug-x86_64\component_storage.exe
